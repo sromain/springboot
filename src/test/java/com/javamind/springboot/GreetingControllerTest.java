@@ -19,21 +19,19 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
-public class HelloControllerTest {
+public class GreetingControllerTest {
 
 	private MockMvc mvc;
 	
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new GreetingController()).build();
 	}
 	
 	@Test
 	public void getHello() throws Exception {
-		System.out.println("TEST EN COURS");
 		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(content().string(equalTo("Greetings from Spring Boot!")));
-		System.out.println("FIN DU TEST EN COURS");
 	}
 }

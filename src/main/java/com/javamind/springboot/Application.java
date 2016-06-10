@@ -1,5 +1,7 @@
 package com.javamind.springboot;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +21,8 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @ComponentScan
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
+
+	static final Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);
