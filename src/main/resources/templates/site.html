@@ -4,6 +4,9 @@
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 </head>
 <body id="cas" class="fl-theme-iphone">
 	<div id="main_content_parent">
@@ -14,8 +17,7 @@
 					<h1 id="app-name" class="fl-table-cell" th:text="'Hello, ' + ${name} + '!'"></h1>
 				</div>
 				<div class="box fl-panel" id="login">
-					<form id="fm1" class="fm-v clearfix" action="/site"
-						method="post">
+					<div id="fm1" class="fm-v clearfix">
 						<div id="login_form">
 							<h2 th:text="#{site.formTitle}"></h2>
 							<div class="row fl-controls-left">
@@ -29,16 +31,50 @@
 									id="edLibelleSite" name="edLibelleSite" type="text" />
 							</div>
 							<div class="row btn-row">
-								<input class="btn-submit" name="_eventId" accesskey="1"
+								<input id="btn-submit" class="btn-submit" name="btn-submit" accesskey="1"
 									type="submit" th:value="#{site.submit}" /> <input
 									class="btn-reset" name="_eventId" accesskey="2" type="reset"
 									th:value="#{site.cancel}" />
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div id="dialog" title="Basic dialog">
+		<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+	</div>
 </body>
+<script>
+$(function(){
+	$("#dialog").dialog({
+		autoOpen: false,
+		modal: true,
+	} );
+
+	$('#btn-submit').click(function() {
+		$.ajax({
+			headers: {
+			    'Accept': 'application/json',
+			    'Content-Type': 'application/json'
+			},
+			type: 'POST',
+			url: 'sites',
+			data: JSON.stringify({ code : $('#edCodeSite').val(), libelle : $('#edLibelleSite').val(), }),
+			timeout: 3000,
+			dataType: 'json',
+			contentType:'application/json',
+			success: function(data) {
+				$( "#dialog" ).dialog("open");
+			},
+			error: function() {
+				alert('La requête n\'a pas abouti');
+			}
+		});
+	});
+});
+</script>
+
 </html>
