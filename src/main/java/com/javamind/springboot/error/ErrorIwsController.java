@@ -1,4 +1,4 @@
-package com.javamind.springboot;
+package com.javamind.springboot.error;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
