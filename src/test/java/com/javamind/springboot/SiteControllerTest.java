@@ -16,18 +16,18 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.javamind.springboot.controller.GreetingController;
+import com.javamind.springboot.controller.SiteController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
-public class GreetingControllerTest {
+public class SiteControllerTest {
 
 	private MockMvc mvc;
 	
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new GreetingController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new SiteController()).build();
 	}
 	
 	@Test

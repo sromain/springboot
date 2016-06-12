@@ -22,7 +22,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
 
-	static final Logger logger = LoggerFactory.getLogger(Application.class);
+	public static final Logger logger = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(Application.class, args);

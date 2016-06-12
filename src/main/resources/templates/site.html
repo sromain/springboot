@@ -14,25 +14,25 @@
 					<h1 id="app-name" class="fl-table-cell" th:text="'Hello, ' + ${name} + '!'"></h1>
 				</div>
 				<div class="box fl-panel" id="login">
-					<form id="fm1" class="fm-v clearfix" action="/greeting"
+					<form id="fm1" class="fm-v clearfix" action="/site"
 						method="post">
 						<div id="login_form">
-							<h2 th:text="#{greeting.formTitle}"></h2>
+							<h2 th:text="#{site.formTitle}"></h2>
 							<div class="row fl-controls-left">
-								<label for="edCodeIncident" class="fl-label"
-									th:text="#{greeting.field1}"></label> <input
-									id="edCodeIncident" name="edCodeIncident" class="required"
+								<label for="edCodeSite" class="fl-label"
+									th:text="#{site.code}"></label> <input
+									id="edCodeSite" name="edCodeSite" class="required"
 									tabindex="1" type="text" />
 							</div>
 							<div class="row fl-controls-left">
-								<label for="edTitre" th:text="#{greeting.field2}"></label> <input
-									id="edTitre" name="edTitre" type="text" />
+								<label for="edLibelleSite" th:text="#{site.libelle}"></label> <input
+									id="edLibelleSite" name="edLibelleSite" type="text" />
 							</div>
 							<div class="row btn-row">
 								<input class="btn-submit" name="_eventId" accesskey="1"
-									type="submit" th:value="#{greeting.submit}" /> <input
+									type="submit" th:value="#{site.submit}" /> <input
 									class="btn-reset" name="_eventId" accesskey="2" type="reset"
-									th:value="#{greeting.cancel}" />
+									th:value="#{site.cancel}" />
 							</div>
 						</div>
 					</form>
