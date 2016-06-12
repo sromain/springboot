@@ -14,7 +14,7 @@
 			<div id="content" class="fl-screenNavigator-scroll-container">
 				<div id="header"
 					class="flc-screenNavigator-navbar fl-navbar fl-table">
-					<h1 id="app-name" class="fl-table-cell" th:text="'Hello, ' + ${name} + '!'"></h1>
+					<h1 id="app-name" class="fl-table-cell" th:text="#{site.title}"></h1>
 				</div>
 				<div class="box fl-panel" id="login">
 					<div id="fm1" class="fm-v clearfix">
@@ -43,12 +43,16 @@
 		</div>
 	</div>
 
-	<div id="dialog" title="Basic dialog">
-		<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+	<div id="dialog" th:title="#{site.titleConfirmText}">
+		<p th:text="#{site.confirmText}"></p>
+		<a id="lCodeSite" href=""><p id="pIdSite"></p></a>
 	</div>
 </body>
 <script>
 $(function(){
+
+	var site = {};
+
 	$("#dialog").dialog({
 		autoOpen: false,
 		modal: true,
@@ -67,7 +71,10 @@ $(function(){
 			dataType: 'json',
 			contentType:'application/json',
 			success: function(data) {
-				$( "#dialog" ).dialog("open");
+				site = data;
+				$('#lCodeSite').attr('href', 'http://localhost:8080/sites/' +site.code);
+				$('#pIdSite').text(site.id);
+				$('#dialog').dialog('open');
 			},
 			error: function() {
 				alert('La requête n\'a pas abouti');

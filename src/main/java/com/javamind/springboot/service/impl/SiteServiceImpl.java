@@ -37,8 +37,8 @@ public class SiteServiceImpl implements SiteService {
 		this.siteRepository.delete(id);
 	}
 
-	public Site getSiteByLibelle(String libelle) {
-		return this.siteRepository.findByLibelle(libelle);
+	public Site getSiteByLibelle(String code) {
+		return this.siteRepository.findByCode(code);
 	}
 
 	public SiteRepository getSiteRepository() {

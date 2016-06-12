@@ -29,9 +29,9 @@ public class SiteRestController {
 		return this.siteService.getAllSites();
 	}
 	
-	@RequestMapping(value="/{libelle}", method = RequestMethod.GET)
-	public Site getSiteForLibelle(@PathVariable(value="libelle") String libelle) {
-		return this.siteService.getSiteByLibelle(libelle);
+	@RequestMapping(value="/{code}", method = RequestMethod.GET)
+	public Site getSiteForLibelle(@PathVariable(value="code") String code) {
+		return this.siteService.getSiteByLibelle(code);
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE) 
