@@ -3,22 +3,23 @@
 <head>
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.min.js"></script>
 </head>
 <body id="cas" class="fl-theme-iphone">
-	<div id="main_content_parent">
-		<div id="main_content" class="fl-screenNavigator-view">
-			<div id="content" class="fl-screenNavigator-scroll-container">
+	<div id="main_content_parent" class="fl-screenNavigator-view-container">
+		<div id="main_content">
+			<div id="content" class="content">
 				<div id="header"
 					class="flc-screenNavigator-navbar fl-navbar fl-table">
 					<h1 id="app-name" class="fl-table-cell" th:text="#{site.title}"></h1>
 				</div>
 				<div class="box fl-panel" id="login">
 					<div id="fm1" class="fm-v clearfix">
-						<div id="login_form">
+						<div id="login_form" action="">
 							<h2 th:text="#{site.formTitle}"></h2>
 							<div class="row fl-controls-left">
 								<label for="edCodeSite" class="fl-label"
@@ -31,9 +32,9 @@
 									id="edLibelleSite" name="edLibelleSite" type="text" />
 							</div>
 							<div class="row btn-row">
-								<input id="btn-submit" class="btn-submit" name="btn-submit" accesskey="1"
+								<input id="btn-submit" class="btn-submit" name="btn-submit"
 									type="submit" th:value="#{site.submit}" /> <input
-									class="btn-reset" name="_eventId" accesskey="2" type="reset"
+									class="btn-reset" name="_eventId" type="reset"
 									th:value="#{site.cancel}" />
 							</div>
 						</div>
